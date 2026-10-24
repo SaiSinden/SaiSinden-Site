@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サンプル株式会社 | 未来を創るテクノロジー企業</title>
+<style>
+:root{--main:#005bac;--sub:#f5f7fa;--text:#222;--white:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--text);line-height:1.7}
+a{color:inherit}.container{width:min(1200px,90%);margin:auto}
+header{background:white;box-shadow:0 2px 10px rgba(0,0,0,.08);position:sticky;top:0;z-index:1000}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:20px}
+.logo a{color:var(--main);text-decoration:none;font-size:1.5rem;font-weight:bold}
+.menu{display:flex;align-items:center;gap:25px;list-style:none}
+.menu a,.dropdown-btn{font:inherit;text-decoration:none;color:var(--text);font-weight:500;background:none;border:0;cursor:pointer}
+.menu a:hover,.dropdown-btn:hover{color:var(--main)}
+.dropdown{position:relative}
+.dropdown-content{display:none;position:absolute;top:100%;left:0;min-width:220px;background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.1);padding-top:8px}
+.dropdown-content a{display:block;padding:12px 18px;transition:.2s}
+.dropdown-content a:hover{background:#f1f5f9;color:var(--main);padding-left:24px}
+.dropdown:hover .dropdown-content,.dropdown:focus-within .dropdown-content,.dropdown.open .dropdown-content{display:block}
+.contact-btn{background:var(--main)!important;color:white!important;padding:12px 20px;border-radius:30px;font-weight:bold!important;display:inline-block}
+.contact-btn:hover{background:#004080!important}
+.hero{background:linear-gradient(rgba(0,91,172,.8),rgba(0,91,172,.8)),url('images/hero.jpg') center/cover;color:white;text-align:center;padding:120px 20px}
+.hero h1{font-size:3rem}.hero p{margin-top:20px;font-size:1.2rem}
+section{padding:80px 0}.section-title{text-align:center;color:var(--main);margin-bottom:50px;font-size:2rem}
+.about{background:var(--sub)}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about img{width:100%;border-radius:12px;display:block}.about h3{font-size:1.5rem;margin-bottom:16px}.about p+p{margin-top:20px}
+.service-intro{text-align:center;margin-bottom:30px}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service-card{background:var(--sub);padding:28px;border-radius:12px;border-top:4px solid var(--main)}.service-card h3{color:var(--main);margin-bottom:10px}
+.video-wrap{max-width:850px;margin:auto}.video-wrap video{width:100%;border-radius:12px;background:#111}
+.security{background:var(--sub)}.security ul{max-width:750px;margin:auto;padding-left:25px}.security li{margin-bottom:10px}
+.contact{text-align:center}.contact a{color:var(--main);font-weight:bold}
+footer{background:#111;color:white;text-align:center;padding:30px}
+@media(max-width:900px){nav{flex-direction:column;gap:15px}.menu{flex-wrap:wrap;justify-content:center;gap:14px}.dropdown-content{left:50%;transform:translateX(-50%);z-index:5}.about-grid{grid-template-columns:1fr}.service-grid{grid-template-columns:1fr}.hero h1{font-size:2rem}.hero{padding:90px 20px}section{padding:60px 0}}
+</style>
+</head>
+<body>
+<header><div class="container"><nav aria-label="メインナビゲーション">
+<div class="logo"><a href="index.html">サンプル株式会社</a></div>
+<div class="menu">
+<div class="dropdown"><button class="dropdown-btn" type="button" aria-expanded="false">企業情報 ▼</button><div class="dropdown-content"><a href="#about">会社概要</a><a href="philosophy.html">企業理念</a><a href="history.html">沿革</a><a href="access.html">アクセス</a></div></div>
+<div class="dropdown"><button class="dropdown-btn" type="button" aria-expanded="false">サービス ▼</button><div class="dropdown-content"><a href="#service">サービス一覧</a><a href="system.html">システム開発</a><a href="embedded.html">組込み開発</a><a href="cloud.html">クラウド構築</a></div></div>
+<div class="dropdown"><button class="dropdown-btn" type="button" aria-expanded="false">採用情報 ▼</button><div class="dropdown-content"><a href="recruit.html">募集要項</a><a href="member.html">社員紹介</a><a href="entry.html">エントリー</a></div></div>
+<a href="#video">企業動画</a><a href="#security">セキュリティ</a><a class="contact-btn" href="#contact">お問い合わせ</a>
+</div></nav></div></header>
+<main>
+<section class="hero"><h1>未来を創るテクノロジー企業</h1><p>安全・高品質なシステム開発と<br>DX推進を支援します</p></section>
+<section id="about" class="about"><div class="container"><h2 class="section-title">会社概要</h2><div class="about-grid"><div><img src="images/company.jpg" alt="会社紹介写真" onerror="this.style.display='none';this.parentNode.textContent='会社の写真（images/company.jpg）を配置してください';"></div><div><h3>サンプル株式会社</h3><p>私たちはソフトウェア開発、組込み開発、クラウド構築、DX支援を中心に事業を展開しています。</p><p>お客様の課題解決を第一に考え、高品質なサービスを提供します。</p></div></div></div></section>
+<section id="service"><div class="container"><h2 class="section-title">サービス</h2><p class="service-intro">システム開発・組込み開発・クラウド構築を提供しています。</p><div class="service-grid"><article class="service-card"><h3>システム開発</h3><p>業務に合わせたソフトウェアの設計・開発を行います。</p></article><article class="service-card"><h3>組込み開発</h3><p>電子機器や制御装置向けのソフトウェアを開発します。</p></article><article class="service-card"><h3>クラウド構築</h3><p>クラウド環境の設計・構築と運用を支援します。</p></article></div></div></section>
+<section id="video"><div class="container"><h2 class="section-title">企業動画</h2><div class="video-wrap"><video controls preload="metadata"><source src="video/company.mp4" type="video/mp4">お使いのブラウザでは動画を再生できません。</video><p>動画を表示する場合は video/company.mp4 を配置してください。</p></div></div></section>
+<section id="security" class="security"><div class="container"><h2 class="section-title">セキュリティへの取り組み</h2><ul><li>HTTPS通信による暗号化</li><li>MFAによる多要素認証</li><li>Dockerコンテナ運用</li><li>WAF導入</li><li>脆弱性診断の実施</li><li>アクセスログ監視</li></ul><p style="margin-top:24px;text-align:center;font-size:.9rem">※上記は掲載例です。実際の運用状況に合わせて修正してください。</p></div></section>
+<section id="contact" class="contact"><div class="container"><h2 class="section-title">お問い合わせ</h2><p><a href="mailto:contact@example.co.jp">contact@example.co.jp</a></p><p>※公開前に実際の連絡先へ変更してください。</p></div></section>
+</main><footer>© 2026 サンプル株式会社</footer>
+<script>
+document.querySelectorAll('.dropdown-btn').forEach(button=>{button.addEventListener('click',()=>{const parent=button.closest('.dropdown');const opening=!parent.classList.contains('open');document.querySelectorAll('.dropdown').forEach(item=>{item.classList.remove('open');item.querySelector('button').setAttribute('aria-expanded','false')});parent.classList.toggle('open',opening);button.setAttribute('aria-expanded',String(opening))})});
+document.addEventListener('click',event=>{if(!event.target.closest('.dropdown'))document.querySelectorAll('.dropdown').forEach(item=>{item.classList.remove('open');item.querySelector('button').setAttribute('aria-expanded','false')})});
+</script>
+</body>
+</html>
