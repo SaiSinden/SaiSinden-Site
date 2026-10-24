@@ -30,7 +30,8 @@ section{padding:80px 0}.section-title{text-align:center;color:var(--main);margin
 .about img{width:100%;border-radius:12px;display:block}.about h3{font-size:1.5rem;margin-bottom:16px}.about p+p{margin-top:20px}
 .service-intro{text-align:center;margin-bottom:30px}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .service-card{background:var(--sub);padding:28px;border-radius:12px;border-top:4px solid var(--main)}.service-card h3{color:var(--main);margin-bottom:10px}
-.video-wrap{max-width:850px;margin:auto}.video-wrap video{width:100%;border-radius:12px;background:#111}
+.video-wrap{max-width:850px;margin:auto}.video-wrap video{display:block;width:100%;aspect-ratio:16/9;border-radius:12px;background:#111}
+.live-status{margin-top:14px;text-align:center;color:#52606d}.live-status.error{color:#b42318}
 .security{background:var(--sub)}.security ul{max-width:750px;margin:auto;padding-left:25px}.security li{margin-bottom:10px}
 .contact{text-align:center}.contact a{color:var(--main);font-weight:bold}
 footer{background:#111;color:white;text-align:center;padding:30px}
@@ -44,19 +45,51 @@ footer{background:#111;color:white;text-align:center;padding:30px}
 <div class="dropdown"><button class="dropdown-btn" type="button" aria-expanded="false">企業情報 ▼</button><div class="dropdown-content"><a href="#about">会社概要</a><a href="philosophy.html">企業理念</a><a href="history.html">沿革</a><a href="access.html">アクセス</a></div></div>
 <div class="dropdown"><button class="dropdown-btn" type="button" aria-expanded="false">サービス ▼</button><div class="dropdown-content"><a href="#service">サービス一覧</a><a href="system.html">システム開発</a><a href="embedded.html">組込み開発</a><a href="cloud.html">クラウド構築</a></div></div>
 <div class="dropdown"><button class="dropdown-btn" type="button" aria-expanded="false">採用情報 ▼</button><div class="dropdown-content"><a href="recruit.html">募集要項</a><a href="member.html">社員紹介</a><a href="entry.html">エントリー</a></div></div>
-<a href="#video">企業動画</a><a href="#security">セキュリティ</a><a class="contact-btn" href="#contact">お問い合わせ</a>
+<a href="#video">ライブカメラ</a><a href="#security">セキュリティ</a><a class="contact-btn" href="#contact">お問い合わせ</a>
 </div></nav></div></header>
 <main>
 <section class="hero"><h1>未来を創るテクノロジー企業</h1><p>安全・高品質なシステム開発と<br>DX推進を支援します</p></section>
 <section id="about" class="about"><div class="container"><h2 class="section-title">会社概要</h2><div class="about-grid"><div><img src="images/company.jpg" alt="会社紹介写真" onerror="this.style.display='none';this.parentNode.textContent='会社の写真（images/company.jpg）を配置してください';"></div><div><h3>サンプル株式会社</h3><p>私たちはソフトウェア開発、組込み開発、クラウド構築、DX支援を中心に事業を展開しています。</p><p>お客様の課題解決を第一に考え、高品質なサービスを提供します。</p></div></div></div></section>
 <section id="service"><div class="container"><h2 class="section-title">サービス</h2><p class="service-intro">システム開発・組込み開発・クラウド構築を提供しています。</p><div class="service-grid"><article class="service-card"><h3>システム開発</h3><p>業務に合わせたソフトウェアの設計・開発を行います。</p></article><article class="service-card"><h3>組込み開発</h3><p>電子機器や制御装置向けのソフトウェアを開発します。</p></article><article class="service-card"><h3>クラウド構築</h3><p>クラウド環境の設計・構築と運用を支援します。</p></article></div></div></section>
-<section id="video"><div class="container"><h2 class="section-title">企業動画</h2><div class="video-wrap"><video controls preload="metadata"><source src="video/company.mp4" type="video/mp4">お使いのブラウザでは動画を再生できません。</video><p>動画を表示する場合は video/company.mp4 を配置してください。</p></div></div></section>
+<section id="video"><div class="container"><h2 class="section-title">ライブカメラ</h2><div class="video-wrap"><video id="live-video" controls autoplay muted playsinline aria-label="Raspberry Pi ライブカメラ"></video><p id="live-status" class="live-status" role="status">ライブ映像を読み込んでいます…</p></div></div></section>
 <section id="security" class="security"><div class="container"><h2 class="section-title">セキュリティへの取り組み</h2><ul><li>HTTPS通信による暗号化</li><li>MFAによる多要素認証</li><li>Dockerコンテナ運用</li><li>WAF導入</li><li>脆弱性診断の実施</li><li>アクセスログ監視</li></ul><p style="margin-top:24px;text-align:center;font-size:.9rem">※上記は掲載例です。実際の運用状況に合わせて修正してください。</p></div></section>
 <section id="contact" class="contact"><div class="container"><h2 class="section-title">お問い合わせ</h2><p><a href="mailto:contact@example.co.jp">contact@example.co.jp</a></p><p>※公開前に実際の連絡先へ変更してください。</p></div></section>
 </main><footer>© 2026 サンプル株式会社</footer>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
 <script>
 document.querySelectorAll('.dropdown-btn').forEach(button=>{button.addEventListener('click',()=>{const parent=button.closest('.dropdown');const opening=!parent.classList.contains('open');document.querySelectorAll('.dropdown').forEach(item=>{item.classList.remove('open');item.querySelector('button').setAttribute('aria-expanded','false')});parent.classList.toggle('open',opening);button.setAttribute('aria-expanded',String(opening))})});
 document.addEventListener('click',event=>{if(!event.target.closest('.dropdown'))document.querySelectorAll('.dropdown').forEach(item=>{item.classList.remove('open');item.querySelector('button').setAttribute('aria-expanded','false')})});
+
+const streamUrl='https://kimono-rewrap-peculiar.ngrok-free.dev/live/stream.m3u8';
+const liveVideo=document.getElementById('live-video');
+const liveStatus=document.getElementById('live-status');
+
+function setLiveStatus(message,isError=false){
+  liveStatus.textContent=message;
+  liveStatus.classList.toggle('error',isError);
+}
+
+if(liveVideo.canPlayType('application/vnd.apple.mpegurl')){
+  liveVideo.src=streamUrl;
+  liveVideo.addEventListener('loadedmetadata',()=>{
+    setLiveStatus('ライブ配信中');
+    liveVideo.play().catch(()=>{});
+  });
+  liveVideo.addEventListener('error',()=>setLiveStatus('現在、ライブ映像を視聴できません。',true));
+}else if(window.Hls&&Hls.isSupported()){
+  const hls=new Hls({liveSyncDurationCount:2,liveMaxLatencyDurationCount:5});
+  hls.loadSource(streamUrl);
+  hls.attachMedia(liveVideo);
+  hls.on(Hls.Events.MANIFEST_PARSED,()=>{
+    setLiveStatus('ライブ配信中');
+    liveVideo.play().catch(()=>{});
+  });
+  hls.on(Hls.Events.ERROR,(_event,data)=>{
+    if(data.fatal)setLiveStatus('現在、ライブ映像を視聴できません。',true);
+  });
+}else{
+  setLiveStatus('このブラウザはライブ映像の再生に対応していません。',true);
+}
 </script>
 </body>
 </html>
